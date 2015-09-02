@@ -13,6 +13,9 @@ class  Card {
     var Cname:String = ""
     var Cgroup:String = ""
     var Cimage:String = ""
+    var CChoseIndex:Int = -1
+    /*有名字就能初始化
+*/
     init(name:String){
         Cname = name
     }

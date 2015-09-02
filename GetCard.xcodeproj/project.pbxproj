@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		517E74A11B2FB6E6004182A3 /* AllData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E74A01B2FB6E6004182A3 /* AllData.swift */; };
+		517E74A11B2FB6E6004182A3 /* UIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E74A01B2FB6E6004182A3 /* UIData.swift */; };
 		517E74A31B2FB997004182A3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E74A21B2FB997004182A3 /* Player.swift */; };
 		517E74A51B2FC8FA004182A3 /* 卡牌框架.png in Resources */ = {isa = PBXBuildFile; fileRef = 517E74A41B2FC8FA004182A3 /* 卡牌框架.png */; };
 		517E74A71B2FCCDA004182A3 /* 卡牌.png in Resources */ = {isa = PBXBuildFile; fileRef = 517E74A61B2FCCDA004182A3 /* 卡牌.png */; };
@@ -21,6 +21,8 @@
 		519223EE1B2EDAFA00868256 /* GetCardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519223ED1B2EDAFA00868256 /* GetCardTests.swift */; };
 		519223F81B2EDB7C00868256 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519223F71B2EDB7C00868256 /* Card.swift */; };
 		519223FA1B2EDCF300868256 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519223F91B2EDCF300868256 /* CardController.swift */; };
+		51A500F71B969290006E46E4 /* otherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51A500F61B969290006E46E4 /* otherData.swift */; };
+		51E9204E1B31069000690EAE /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E9204D1B31069000690EAE /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		517E74A01B2FB6E6004182A3 /* AllData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllData.swift; sourceTree = "<group>"; };
+		517E74A01B2FB6E6004182A3 /* UIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIData.swift; sourceTree = "<group>"; };
 		517E74A21B2FB997004182A3 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		517E74A41B2FC8FA004182A3 /* 卡牌框架.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "卡牌框架.png"; sourceTree = "<group>"; };
 		517E74A61B2FCCDA004182A3 /* 卡牌.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "卡牌.png"; sourceTree = "<group>"; };
@@ -52,6 +54,8 @@
 		519223ED1B2EDAFA00868256 /* GetCardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCardTests.swift; sourceTree = "<group>"; };
 		519223F71B2EDB7C00868256 /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		519223F91B2EDCF300868256 /* CardController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
+		51A500F61B969290006E46E4 /* otherData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otherData.swift; sourceTree = "<group>"; };
+		51E9204D1B31069000690EAE /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,7 +103,9 @@
 				519223F71B2EDB7C00868256 /* Card.swift */,
 				519223F91B2EDCF300868256 /* CardController.swift */,
 				519223D91B2EDAFA00868256 /* GameViewController.swift */,
-				517E74A01B2FB6E6004182A3 /* AllData.swift */,
+				517E74A01B2FB6E6004182A3 /* UIData.swift */,
+				51A500F61B969290006E46E4 /* otherData.swift */,
+				51E9204D1B31069000690EAE /* DataController.swift */,
 				517E74A21B2FB997004182A3 /* Player.swift */,
 				519223DB1B2EDAFA00868256 /* Main.storyboard */,
 				519223DE1B2EDAFA00868256 /* Images.xcassets */,
@@ -243,9 +249,11 @@
 				519223D81B2EDAFA00868256 /* GameScene.swift in Sources */,
 				519223DA1B2EDAFA00868256 /* GameViewController.swift in Sources */,
 				519223D41B2EDAFA00868256 /* AppDelegate.swift in Sources */,
+				51A500F71B969290006E46E4 /* otherData.swift in Sources */,
 				517E74A31B2FB997004182A3 /* Player.swift in Sources */,
+				51E9204E1B31069000690EAE /* DataController.swift in Sources */,
 				519223F81B2EDB7C00868256 /* Card.swift in Sources */,
-				517E74A11B2FB6E6004182A3 /* AllData.swift in Sources */,
+				517E74A11B2FB6E6004182A3 /* UIData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
