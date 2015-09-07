@@ -11,6 +11,7 @@ import SpriteKit
 class GameScene: SKScene {
     let cardControll=CardController()
     let dataControll=dataController()
+    let gamelogic = gameLogic()
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         //所有的卡牌数据初始
@@ -28,16 +29,20 @@ class GameScene: SKScene {
         //读取存储的卡组信息
         dataControll.loadCardDeckDatas()
         dataControll.loadPlayerDatas()
+        
         //展示所有的卡组内容
         cardControll.funcShowCardInfo(CCardDeck)
         cardControll.funcShowCardInfo(CPlayerCardData)
+        
         println(self.size)//展示一下当前设备的尺寸
         var point1=CGPointMake(80, self.size.height-40)
+        
         for item in CPlayerCardData{
             var label=SKLabelNode(text: item.Cname)
             label.position=point1
             point1=CGPointMake(point1.x, point1.y-30)
             label.name = item.Cname
+            item.Cnode = label
             
             self.addChild(label)
         }
@@ -63,28 +68,15 @@ class GameScene: SKScene {
         for touch in (touches as! Set<UITouch>) {
             let location = touch.locationInNode(self)
             let tochname = nodeAtPoint(location)
-            println(location)
             
-            switch tochname.name! {
-                
-            case "阳性" :
-                
-                if tochname.xScale==1{
-                    tochname.setScale(2.0)}
-                else
-                {
-                    tochname.setScale(1.0)
-                }
-            case "BackGround" :
-                
-                println()
-                
-            default:
+            if tochname.frame == self.frame{
+                cardControll.funcShowCardChose(CPlayerCardData)
                 cardControll.getNewCard()
                 dataControll.savePlayerDatas()
-                println("你点击了一张\(tochname.name!)")
             }
-            
+            else{
+                println(location)
+            gamelogic.gameLogic_touchCard(tochname)
             //let sprite = SKSpriteNode(imageNamed:"Spaceship")
             /*
             sprite.xScale = 0.5
@@ -97,8 +89,10 @@ class GameScene: SKScene {
             
             self.addChild(sprite)
         */}
+        }
+        
         cardControll.funcShowCardInfo(CPlayerCardData)
-
+        
 
     }
    

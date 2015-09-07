@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5127842C1B9DD83B00596B45 /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5127842B1B9DD83B00596B45 /* GameLogic.swift */; };
 		517E74A11B2FB6E6004182A3 /* UIData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E74A01B2FB6E6004182A3 /* UIData.swift */; };
 		517E74A31B2FB997004182A3 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517E74A21B2FB997004182A3 /* Player.swift */; };
 		517E74A51B2FC8FA004182A3 /* 卡牌框架.png in Resources */ = {isa = PBXBuildFile; fileRef = 517E74A41B2FC8FA004182A3 /* 卡牌框架.png */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5127842B1B9DD83B00596B45 /* GameLogic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		517E74A01B2FB6E6004182A3 /* UIData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIData.swift; sourceTree = "<group>"; };
 		517E74A21B2FB997004182A3 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		517E74A41B2FC8FA004182A3 /* 卡牌框架.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "卡牌框架.png"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				517E74A01B2FB6E6004182A3 /* UIData.swift */,
 				51A500F61B969290006E46E4 /* otherData.swift */,
 				51E9204D1B31069000690EAE /* DataController.swift */,
+				5127842B1B9DD83B00596B45 /* GameLogic.swift */,
 				517E74A21B2FB997004182A3 /* Player.swift */,
 				519223DB1B2EDAFA00868256 /* Main.storyboard */,
 				519223DE1B2EDAFA00868256 /* Images.xcassets */,
@@ -253,6 +256,7 @@
 				517E74A31B2FB997004182A3 /* Player.swift in Sources */,
 				51E9204E1B31069000690EAE /* DataController.swift in Sources */,
 				519223F81B2EDB7C00868256 /* Card.swift in Sources */,
+				5127842C1B9DD83B00596B45 /* GameLogic.swift in Sources */,
 				517E74A11B2FB6E6004182A3 /* UIData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
