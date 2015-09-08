@@ -62,6 +62,7 @@ class CardController {
         println("没有找到对应的卡片")
         return -1
     }
+    
     /* 读取出被选中的卡牌 数据，返回一个序列*/
     func funcFindCardWhoisChosed()->[Int]{
         var count = 0
@@ -78,6 +79,7 @@ class CardController {
         return choseNum
     }
     
+    /*展示选中的卡片情况*/
     func funcShowTheChoseInfo(choseNum:[Int])->Bool{
         if choseNum.isEmpty {
             println("没有卡牌被选中")

@@ -37,6 +37,7 @@ class GameScene: SKScene {
         println(self.size)//展示一下当前设备的尺寸
         var point1=CGPointMake(80, self.size.height-40)
         
+        //将玩家卡组中的牌 实例化到屏幕上
         for item in CPlayerCardData{
             var label=SKLabelNode(text: item.Cname)
             label.position=point1
@@ -46,6 +47,12 @@ class GameScene: SKScene {
             
             self.addChild(label)
         }
+        //将合成按钮呈现出来
+        var combbutton = SKLabelNode(text: "【合成】")
+        combbutton.position = CGPointMake(self.frame.midX, self.frame.minY)
+        combbutton.name = "合成"
+        self.addChild(combbutton)
+        
         
         /*
         for i in 0...7{
@@ -65,35 +72,16 @@ class GameScene: SKScene {
        
                 /* Called when a touch begins*/
 
-        for touch in (touches as! Set<UITouch>) {
+        for touch in (touches as! Set<UITouch>)
+        {
             let location = touch.locationInNode(self)
             let tochname = nodeAtPoint(location)
-            
-            if tochname.frame == self.frame{
-                cardControll.funcShowCardChose(CPlayerCardData)
-                cardControll.getNewCard()
-                dataControll.savePlayerDatas()
-            }
-            else{
-                println(location)
-            gamelogic.gameLogic_touchCard(tochname)
-            //let sprite = SKSpriteNode(imageNamed:"Spaceship")
-            /*
-            sprite.xScale = 0.5
-            sprite.yScale = 0.5
-            sprite.position = location
-            
-            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-            
-            sprite.runAction(SKAction.repeatActionForever(action))
-            
-            self.addChild(sprite)
-        */}
+            println(location)
+            gamelogic.gameLogic_touchCard(tochname, skscene: self)
         }
         
         cardControll.funcShowCardInfo(CPlayerCardData)
-        
-
+ 
     }
    
     override func update(currentTime: CFTimeInterval) {

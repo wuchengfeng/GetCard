@@ -10,13 +10,22 @@ import Foundation
 import SpriteKit
 class gameLogic {
     var cardControll = CardController()
-    func gameLogic_touchCard(tochname:SKNode)->Bool{
+    var dataControll = dataController()
+    func gameLogic_touchCard(tochname:SKNode,skscene:SKScene)->Bool{
+        if tochname.frame == skscene.frame{
+            cardControll.funcShowCardChose(CPlayerCardData)
+            cardControll.getNewCard()
+            dataControll.savePlayerDatas()
+        }
+        else{
         switch tochname.name! {
             
         case "阳性","阴性","火","风","水","地","水晶球" :
             
-            if tochname.xScale==1 && cardControll.funcFindCardWhoisChosed().count<2{
-                tochname.setScale(2.0)}
+            if tochname.xScale==1 && cardControll.funcFindCardWhoisChosed().count<2
+            {
+                tochname.setScale(2.0)
+            }
             else
             {
                 tochname.setScale(1.0)
@@ -41,10 +50,40 @@ class gameLogic {
             
             println()
             
+        case "合成" :
+            if cardControll.funcFindCardWhoisChosed().count == 2
+            {
+                //通过选中的卡牌，删除这个卡牌，并合成一张新的
+                if cardControll.funcFindCardWhoisChosed()[0] < cardControll.funcFindCardWhoisChosed()[1]{
+                    var cardstring1 = CPlayerCardData[cardControll.funcFindCardWhoisChosed()[0]].Cname
+                    
+                CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
+                    println(cardControll.funcFindCardWhoisChosed())
+                    var cardstring2 = CPlayerCardData[cardControll.funcFindCardWhoisChosed()[0]].Cname
+                    
+                CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
+                    cardControll.funcShowCardInfo(CPlayerCardData)
+                    
+                }
+                else
+                {
+                    CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
+                    CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
+                }
+                //招一个新的卡片
+                cardControll.getNewCard()
+                println("你合成了一张卡片，为\(CPlayerCardData)")
+                dataControll.savePlayerDatas()
+                skscene.removeAllChildren()
+                skscene.didMoveToView(skscene.view!)
+            }
+            
         default:
             
             println("没有命名的卡片哦")
         }
         return true
+        }
+        return false
     }
 }
