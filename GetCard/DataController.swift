@@ -13,8 +13,8 @@ class dataController {
     
     //获取沙盒地址
     func documentsDirectory()->String{
-        var paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentationDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        var documentsDirectory:String = paths.first as! String
+        let paths = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentationDirectory, NSSearchPathDomainMask.UserDomainMask, true)
+        let documentsDirectory:String = paths.first!
         return documentsDirectory
     }
     
@@ -28,7 +28,7 @@ class dataController {
             return self.documentsDirectory().stringByAppendingString("CardDeckDatas.plist")
             
         default :
-            println("no this type")
+            print("no this type")
             return "no such file"
         }
         
@@ -63,8 +63,8 @@ class dataController {
         for item in CPlayerCardData {
             CPlayerCardDataString.append(item.Cname)
         }
-        var data = NSMutableData()
-        var archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
         archiver.encodeObject(CPlayerCardDataString, forKey: "PlayerDatas")
         archiver.finishEncoding()
         data.writeToFile(dataFilePath("PlayerData"), atomically: true)
@@ -91,8 +91,8 @@ class dataController {
     
     //保存到所有卡牌数据
     func saveCardDeckDatas(){
-        var data = NSMutableData()
-        var archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
         var CCardDeckString = [String]()
         for item in CCardDeck{
             CCardDeckString.append(item.Cname)

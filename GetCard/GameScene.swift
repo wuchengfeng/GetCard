@@ -34,26 +34,47 @@ class GameScene: SKScene {
         cardControll.funcShowCardInfo(CCardDeck)
         cardControll.funcShowCardInfo(CPlayerCardData)
         
-        println(self.size)//展示一下当前设备的尺寸
-        var point1=CGPointMake(80, self.size.height-40)
+        print(self.size)//展示一下当前设备的尺寸
+        var point1=CGPointMake(80, self.size.height-80)
         
         //将玩家卡组中的牌 实例化到屏幕上
         for item in CPlayerCardData{
-            var label=SKLabelNode(text: item.Cname)
+            let label=SKLabelNode(text: item.Cname)
+            label.fontSize=60
             label.position=point1
-            point1=CGPointMake(point1.x, point1.y-30)
+            if point1.y-60>60
+            {
+            point1=CGPointMake(point1.x, point1.y-60)
+            }
+            else
+            {
+            point1=CGPointMake(point1.x+160,self.size.height-80)
+            }
             label.name = item.Cname
             item.Cnode = label
             
             self.addChild(label)
+            
+            
         }
         //将合成按钮呈现出来
-        var combbutton = SKLabelNode(text: "【合成】")
-        combbutton.position = CGPointMake(self.frame.midX, self.frame.minY)
+        let combbutton = SKLabelNode(text: "【合成】")
+        combbutton.fontSize = 100
+        combbutton.position = CGPointMake(self.frame.midX, self.frame.midY)
         combbutton.name = "合成"
         self.addChild(combbutton)
         
+        let getCardButton = SKLabelNode(text: "【抽卡】")
+        getCardButton.fontSize = 100
+        getCardButton.position = CGPointMake(self.frame.midX, self.frame.midY-100)
+        getCardButton.name = "抽卡"
+        self.addChild(getCardButton)
         
+        let zhengliButton = SKLabelNode(text: "【整理】")
+        zhengliButton.fontSize = 100
+        zhengliButton.position = CGPointMake(self.frame.midX, self.frame.midY-200)
+        zhengliButton.name = "整理"
+        self.addChild(zhengliButton)
         /*
         for i in 0...7{
             let CardPlace = SKSpriteNode(imageNamed: "卡牌.png")
@@ -68,15 +89,15 @@ class GameScene: SKScene {
       
     }
     
-    override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        
                 /* Called when a touch begins*/
 
-        for touch in (touches as! Set<UITouch>)
+        for touch in (touches )
         {
             let location = touch.locationInNode(self)
             let tochname = nodeAtPoint(location)
-            println(location)
+            print(location)
             gamelogic.gameLogic_touchCard(tochname, skscene: self)
         }
         

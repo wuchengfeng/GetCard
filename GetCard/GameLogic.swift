@@ -13,9 +13,7 @@ class gameLogic {
     var dataControll = dataController()
     func gameLogic_touchCard(tochname:SKNode,skscene:SKScene)->Bool{
         if tochname.frame == skscene.frame{
-            cardControll.funcShowCardChose(CPlayerCardData)
-            cardControll.getNewCard()
-            dataControll.savePlayerDatas()
+            
         }
         else{
         switch tochname.name! {
@@ -30,7 +28,7 @@ class gameLogic {
             {
                 tochname.setScale(1.0)
             }
-            var cardchoseIndex = cardControll.funcFindCardWithNode(tochname)
+            let cardchoseIndex = cardControll.funcFindCardWithNode(tochname)
             
             if CPlayerCardData[cardchoseIndex].CChoseIndex == 0
             {
@@ -39,16 +37,21 @@ class gameLogic {
                     CPlayerCardData[cardchoseIndex].CChoseIndex = 1
                 }
                 else{
-                    println("已经有两张卡片被选中了，无法再选中卡片")
+                    print("已经有两张卡片被选中了，无法再选中卡片")
                 }
             }
             else
             { CPlayerCardData[cardchoseIndex].CChoseIndex = 0}
             cardControll.funcShowTheChoseInfo(cardControll.funcFindCardWhoisChosed())
-            
+        case "抽卡" :
+            cardControll.funcShowCardChose(CPlayerCardData)
+            cardControll.getNewCard()
+            dataControll.savePlayerDatas()
+            skscene.removeAllChildren()
+            skscene.didMoveToView(skscene.view!)
         case "BackGround" :
             
-            println()
+            print("")
             
         case "合成" :
             if cardControll.funcFindCardWhoisChosed().count == 2
@@ -58,7 +61,7 @@ class gameLogic {
                     var cardstring1 = CPlayerCardData[cardControll.funcFindCardWhoisChosed()[0]].Cname
                     
                 CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
-                    println(cardControll.funcFindCardWhoisChosed())
+                    print(cardControll.funcFindCardWhoisChosed())
                     var cardstring2 = CPlayerCardData[cardControll.funcFindCardWhoisChosed()[0]].Cname
                     
                 CPlayerCardData.removeAtIndex(cardControll.funcFindCardWhoisChosed()[0])
@@ -72,7 +75,7 @@ class gameLogic {
                 }
                 //招一个新的卡片
                 cardControll.getNewCard()
-                println("你合成了一张卡片，为\(CPlayerCardData)")
+                print("你合成了一张卡片，为\(CPlayerCardData)")
                 dataControll.savePlayerDatas()
                 skscene.removeAllChildren()
                 skscene.didMoveToView(skscene.view!)
@@ -80,7 +83,7 @@ class gameLogic {
             
         default:
             
-            println("没有命名的卡片哦")
+            print("没有命名的卡片哦")
         }
         return true
         }
